@@ -225,7 +225,6 @@ VALUES
 ('Gustavo Pereira', '1979-10-10', 'M', '555-7777', 'gustavo.pereira@example.com', '555-7000'),
 ('Laura Oliveira', '1985-06-17', 'F', '555-8888', 'laura.oliveira@example.com', '555-8000'),
 ('Rafaela Fernandes', '1989-03-04', 'F', '555-9999', 'rafaela.fernandes@example.com', '555-9000')
-VALUES
 ;
 
 INSERT INTO Turno (descricao)
