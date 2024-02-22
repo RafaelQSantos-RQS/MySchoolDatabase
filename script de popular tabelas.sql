@@ -211,3 +211,52 @@ VALUES
 ('Luan Costa', '2009-10-19', 'M', '(11) 1234-5678', 'luan.costa@email.com', 5, 1)
 ;
 
+INSERT INTO Professores (id_professor, nome, data_nascimento, sexo, telefone, email, contato_emergencial)
+VALUES
+;
+
+INSERT INTO Turno (id_turno, descricao)
+VALUES
+;
+
+INSERT INTO Serie_Turno (id_serie_turno, id_serie,id_turno)
+VALUES
+;
+
+INSERT INTO Turma_Ano_Letivo (id_turma_ano_letivo, codturma, id_ano_letivo, id_serie_turno, maximo_aluno)
+VALUES
+;
+
+INSERT INTO Turma_Disciplina (id_turma_disciplina, id_turma_ano_letivo, id_disciplina)
+VALUES
+;
+
+INSERT INTO Prof_Turma_Disc (id_turma_disciplina, id_professor)
+VALUES
+;
+
+INSERT INTO Aulas (id_aulas, id_turma_disciplina, "data", hora_inicio, hora_fim, aula)
+VALUES
+;
+
+INSERT INTO Bimestre (id_bimestre, id_turma_disciplina, descricao, valor, media_aprovacao)
+VALUES
+;
+
+INSERT INTO Aluno_Ano_Letivo (id_aluno, id_turma_ano_letivo, id_status)
+VALUES
+;
+
+INSERT INTO Aluno_Disciplinas (id_aluno, id_turma_ano_letivo, id_turma_disciplina, id_status)
+VALUES
+;
+
+INSERT INTO Frequencia (id_aluno, id_turma_ano_letivo, id_turma_disciplina, id_aulas)
+VALUES
+;
+
+INSERT INTO Notas (id_aluno, id_turma_ano_letivo, id_turma_disciplina, id_bimestre, nota)
+VALUES
+;
+
+
