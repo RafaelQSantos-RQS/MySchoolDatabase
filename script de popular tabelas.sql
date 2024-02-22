@@ -225,6 +225,51 @@ VALUES
 ('Gustavo Pereira', '1979-10-10', 'M', '555-7777', 'gustavo.pereira@example.com', '555-7000'),
 ('Laura Oliveira', '1985-06-17', 'F', '555-8888', 'laura.oliveira@example.com', '555-8000'),
 ('Rafaela Fernandes', '1989-03-04', 'F', '555-9999', 'rafaela.fernandes@example.com', '555-9000')
+VALUES
+;
+
+INSERT INTO Turno (descricao)
+VALUES
+;
+
+INSERT INTO Serie_Turno (id_serie,id_turno)
+VALUES
+;
+
+INSERT INTO Turma_Ano_Letivo (codturma, id_ano_letivo, id_serie_turno, maximo_aluno)
+VALUES
+;
+
+INSERT INTO Turma_Disciplina (id_turma_ano_letivo, id_disciplina)
+VALUES
+;
+
+INSERT INTO Prof_Turma_Disc (id_turma_disciplina, id_professor)
+VALUES
+;
+
+INSERT INTO Aulas (id_turma_disciplina, "data", hora_inicio, hora_fim, aula)
+VALUES
+;
+
+INSERT INTO Bimestre (id_turma_disciplina, descricao, valor, media_aprovacao)
+VALUES
+;
+
+INSERT INTO Aluno_Ano_Letivo (id_aluno, id_turma_ano_letivo, id_status)
+VALUES
+;
+
+INSERT INTO Aluno_Disciplinas (id_aluno, id_turma_ano_letivo, id_turma_disciplina, id_status)
+VALUES
+;
+
+INSERT INTO Frequencia (id_aluno, id_turma_ano_letivo, id_turma_disciplina, id_aulas)
+VALUES
+;
+
+INSERT INTO Notas (id_aluno, id_turma_ano_letivo, id_turma_disciplina, id_bimestre, nota)
+VALUES
 ;
 
 
