@@ -211,23 +211,36 @@ VALUES
 ('Luan Costa', '2009-10-19', 'M', '(11) 1234-5678', 'luan.costa@email.com', 5, 1)
 ;
 
-INSERT INTO Professores (id_professor, nome, data_nascimento, sexo, telefone, email, contato_emergencial)
+INSERT INTO Professores (nome, data_nascimento, sexo, telefone, email, contato_emergencial)
+VALUES 
+('Marcos Oliveira', '1985-03-25', 'M', '555-1357', 'marcos@example.com', '555-9999'),
+('Camila Santos', '1990-07-12', 'F', '555-2468', 'camila@example.com', '555-8888'),
+('Rafael Souza', '1980-11-30', 'M', '555-3579', 'rafael@example.com', '555-7777'),
+('Carlos Machado', '1978-05-12', 'M', '555-1111', 'carlos.machado@example.com', '555-1000'),
+('Renata Ferreira', '1983-09-28', 'F', '555-2222', 'renata.ferreira@example.com', '555-2000'),
+('Antônio Costa', '1975-02-15', 'M', '555-3333', 'antonio.costa@example.com', '555-3000'),
+('Patrícia Oliveira', '1980-11-08', 'F', '555-4444', 'patricia.oliveira@example.com', '555-4000'),
+('Rodrigo Almeida', '1987-07-03', 'M', '555-5555', 'rodrigo.almeida@example.com', '555-5000'),
+('Mariana Santos', '1982-04-20', 'F', '555-6666', 'mariana.santos@example.com', '555-6000'),
+('Gustavo Pereira', '1979-10-10', 'M', '555-7777', 'gustavo.pereira@example.com', '555-7000'),
+('Laura Oliveira', '1985-06-17', 'F', '555-8888', 'laura.oliveira@example.com', '555-8000'),
+('Rafaela Fernandes', '1989-03-04', 'F', '555-9999', 'rafaela.fernandes@example.com', '555-9000')
 VALUES
 ;
 
-INSERT INTO Turno (id_turno, descricao)
+INSERT INTO Turno (descricao)
 VALUES
 ;
 
-INSERT INTO Serie_Turno (id_serie_turno, id_serie,id_turno)
+INSERT INTO Serie_Turno (id_serie,id_turno)
 VALUES
 ;
 
-INSERT INTO Turma_Ano_Letivo (id_turma_ano_letivo, codturma, id_ano_letivo, id_serie_turno, maximo_aluno)
+INSERT INTO Turma_Ano_Letivo (codturma, id_ano_letivo, id_serie_turno, maximo_aluno)
 VALUES
 ;
 
-INSERT INTO Turma_Disciplina (id_turma_disciplina, id_turma_ano_letivo, id_disciplina)
+INSERT INTO Turma_Disciplina (id_turma_ano_letivo, id_disciplina)
 VALUES
 ;
 
@@ -235,11 +248,11 @@ INSERT INTO Prof_Turma_Disc (id_turma_disciplina, id_professor)
 VALUES
 ;
 
-INSERT INTO Aulas (id_aulas, id_turma_disciplina, "data", hora_inicio, hora_fim, aula)
+INSERT INTO Aulas (id_turma_disciplina, "data", hora_inicio, hora_fim, aula)
 VALUES
 ;
 
-INSERT INTO Bimestre (id_bimestre, id_turma_disciplina, descricao, valor, media_aprovacao)
+INSERT INTO Bimestre (id_turma_disciplina, descricao, valor, media_aprovacao)
 VALUES
 ;
 
