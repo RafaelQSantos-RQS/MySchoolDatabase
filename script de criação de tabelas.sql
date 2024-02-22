@@ -1,3 +1,21 @@
+CREATE TABLE IF NOT EXISTS Enderecos (
+	id_endereco SMALLSERIAL PRIMARY KEY,
+	cep VARCHAR(25) NOT NULL,
+    rua VARCHAR(250) NOT NULL,
+    numero VARCHAR(5) NOT NULL ,
+    bairro VARCHAR(200) NOT NULL,
+    cidade VARCHAR(250) NOT NULL,
+    estado VARCHAR(250) NOT NULL,
+    pais VARCHAR(250) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS Responsavel (
+	id_responsavel SMALLSERIAL PRIMARY KEY,
+    nome_responsavel VARCHAR(200) NOT NULL,
+    telefone_responsavel VARCHAR(200) NOT NULL,
+    email_responsavel VARCHAR(200) NOT NULL
+);
+
+
 CREATE TABLE IF NOT EXISTS Alunos (
     id_aluno SERIAL PRIMARY KEY,
     nome VARCHAR(200) NOT NULL,
@@ -5,17 +23,8 @@ CREATE TABLE IF NOT EXISTS Alunos (
     sexo CHAR NOT NULL,
     telefone VARCHAR(15) NOT NULL,
     email VARCHAR(254) NOT NULL,
-	--precisa normalizar. criar outra tabela
-    cep VARCHAR(25),
-    rua VARCHAR(250),
-    numero VARCHAR(5),
-    bairro VARCHAR(200),
-    cidade VARCHAR(250),
-    estado VARCHAR(250),
-    pais VARCHAR(250),
-    nome_responsavel VARCHAR(200) NOT NULL,
-    telefone_responsavel VARCHAR(200) NOT NULL,
-    email_responsavel VARCHAR(200) NOT NULL
+	id_endereco SMALLINT REFERENCES Enderecos(id_endereco),
+	id_responsavel SMALLINT NOT NULL REFERENCES Responsavel(id_responsavel)
 );
 
 CREATE TABLE Status (
