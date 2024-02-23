@@ -15,7 +15,6 @@ CREATE TABLE IF NOT EXISTS Responsavel (
     email_responsavel VARCHAR(200) NOT NULL
 );
 
-
 CREATE TABLE IF NOT EXISTS Alunos (
     id_aluno SERIAL PRIMARY KEY,
     nome VARCHAR(200) NOT NULL,
@@ -42,13 +41,6 @@ CREATE TABLE Ano_Letivo (
     ano VARCHAR(4) NOT NULL,
     descricao VARCHAR(100) NOT NULL
 );
-
-
-CREATE TABLE Turno (
-    id_turno SMALLSERIAL PRIMARY KEY,
-    descricao VARCHAR(100) NOT NULL
-);
-
 
 CREATE TABLE Cursos (
     id_curso SMALLSERIAL PRIMARY KEY,
@@ -88,11 +80,12 @@ CREATE TABLE Serie_Disciplinas (
     PRIMARY KEY (id_serie, id_disciplina)
 );
 
+CREATE TYPE turno AS ENUM ('Manhã','Tarde','Noite'); -- Para eliminar uma tabela só para os turnos
 
 CREATE TABLE Serie_Turno (
     id_serie_turno SMALLSERIAL PRIMARY KEY,
     id_serie SMALLINT REFERENCES Serie_Ano(id_serie) NOT NULL,
-    id_turno SMALLINT REFERENCES Turno(id_turno) NOT NULL
+    turno turno
 );
 
 
