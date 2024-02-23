@@ -411,28 +411,96 @@ VALUES
 (415,10),(416,11),(417,5),(418,7),(419,3),(420,2),(421,4),(422,8),(423,12),
 (424,3),(425,10),(426,5),(427,1),(428,8),(429,12),(430,2),(431,7),(432,11);
 
+
 INSERT INTO Aulas (id_turma_disciplina, "data", hora_inicio, hora_fim, aula)
-VALUES
+SELECT id_turma_disciplina, TO_DATE('2024-02-01', 'YYYY-MM-DD'), '08:00', '10:00', 1  FROM turma_disciplina
+UNION
+SELECT id_turma_disciplina, TO_DATE('2024-02-02', 'YYYY-MM-DD'), '08:00', '10:00', 2  FROM turma_disciplina
+UNION
+SELECT id_turma_disciplina, TO_DATE('2024-02-05', 'YYYY-MM-DD'), '08:00', '10:00', 3  FROM turma_disciplina
+UNION
+SELECT id_turma_disciplina, TO_DATE('2024-02-06', 'YYYY-MM-DD'), '08:00', '10:00', 4  FROM turma_disciplina
+UNION
+SELECT id_turma_disciplina, TO_DATE('2024-02-07', 'YYYY-MM-DD'), '08:00', '10:00', 5  FROM turma_disciplina
+UNION
+SELECT id_turma_disciplina, TO_DATE('2024-02-08', 'YYYY-MM-DD'), '08:00', '10:00', 6  FROM turma_disciplina
+UNION
+SELECT id_turma_disciplina, TO_DATE('2024-02-09', 'YYYY-MM-DD'), '08:00', '10:00', 7  FROM turma_disciplina
+UNION
+SELECT id_turma_disciplina, TO_DATE('2024-02-15', 'YYYY-MM-DD'), '08:00', '10:00', 8  FROM turma_disciplina
+UNION
+SELECT id_turma_disciplina, TO_DATE('2024-02-16', 'YYYY-MM-DD'), '08:00', '10:00', 9  FROM turma_disciplina
+UNION
+SELECT id_turma_disciplina, TO_DATE('2024-02-16', 'YYYY-MM-DD'), '14:00', '17:00', 10  FROM turma_disciplina
 ;
 
 INSERT INTO Bimestre (id_turma_disciplina, descricao, valor, media_aprovacao)
-VALUES
+SELECT id_turma_disciplina, '1º Bimestre', 100, 70 FROM turma_disciplina
+UNION
+SELECT id_turma_disciplina, '2º Bimestre', 100, 70 FROM turma_disciplina
+UNION
+SELECT id_turma_disciplina, '3º Bimestre', 100, 70 FROM turma_disciplina
+UNION
+SELECT id_turma_disciplina, '4º Bimestre', 100, 70 FROM turma_disciplina
 ;
 
+WITH TURMAS AS (SELECT ROW_NUMBER() OVER (ORDER BY ID_TURMA_ANO_LETIVO) NUM, * FROM Turma_Ano_Letivo WHERE ID_ANO_LETIVO = 3)
+
 INSERT INTO Aluno_Ano_Letivo (id_aluno, id_turma_ano_letivo, id_status)
-VALUES
+SELECT id_aluno, id_turma_ano_letivo, 1
+FROM Alunos
+	, TURMAS
+
+WHERE (TURMAS.NUM = 1 AND ALUNOS.ID_ALUNO <= 6 )
+	OR (TURMAS.NUM = 2 AND ALUNOS.ID_ALUNO > (TURMAS.NUM-1)*6 AND ALUNOS.ID_ALUNO <= TURMAS.NUM*6)
+	OR (TURMAS.NUM = 3 AND ALUNOS.ID_ALUNO > (TURMAS.NUM-1)*6 AND ALUNOS.ID_ALUNO <= TURMAS.NUM*6)
+	OR (TURMAS.NUM = 4 AND ALUNOS.ID_ALUNO > (TURMAS.NUM-1)*6 AND ALUNOS.ID_ALUNO <= TURMAS.NUM*6)
+	OR (TURMAS.NUM = 5 AND ALUNOS.ID_ALUNO > (TURMAS.NUM-1)*6 AND ALUNOS.ID_ALUNO <= TURMAS.NUM*6)
+	OR (TURMAS.NUM = 6 AND ALUNOS.ID_ALUNO > (TURMAS.NUM-1)*6 AND ALUNOS.ID_ALUNO <= TURMAS.NUM*6)
+	OR (TURMAS.NUM = 7 AND ALUNOS.ID_ALUNO > (TURMAS.NUM-1)*6 AND ALUNOS.ID_ALUNO <= TURMAS.NUM*6)
+	OR (TURMAS.NUM = 8 AND ALUNOS.ID_ALUNO > (TURMAS.NUM-1)*6 AND ALUNOS.ID_ALUNO <= TURMAS.NUM*6)
+	OR (TURMAS.NUM = 9 AND ALUNOS.ID_ALUNO > (TURMAS.NUM-1)*6 AND ALUNOS.ID_ALUNO <= TURMAS.NUM*6)
 ;
 
 INSERT INTO Aluno_Disciplinas (id_aluno, id_turma_ano_letivo, id_turma_disciplina, id_status)
-VALUES
+select aluno_Ano_Letivo.id_aluno,  aluno_Ano_Letivo.id_turma_ano_letivo, Turma_Disciplina.id_turma_disciplina, 1
+from aluno_Ano_Letivo
+	JOIN Turma_Disciplina
+		ON Turma_Disciplina.id_turma_ano_letivo = aluno_Ano_Letivo.id_turma_ano_letivo
 ;
 
-INSERT INTO Frequencia (id_aluno, id_turma_ano_letivo, id_turma_disciplina, id_aulas)
-VALUES
+WITH ALUNO_AULAS AS (SELECT Aluno_Disciplinas.id_aluno
+				  	, Aluno_Disciplinas.id_turma_ano_letivo
+				  	, Aluno_Disciplinas.id_turma_disciplina
+				  	, Aulas.id_aulas
+				  	/* GERANDO FALTA ALEATORIAMENTE */
+					, CASE WHEN CAST( (Aulas.id_aulas / Aluno_Disciplinas.id_aluno) AS INTEGER) % 2  = 0
+				  		THEN 'P' --presenca
+				  		ELSE 'F' --falta
+				  	END "frequencia"
+				  FROM Aluno_Disciplinas
+					JOIN Aulas
+						ON Aulas.id_turma_disciplina = Aluno_Disciplinas.id_turma_disciplina
+				  
+				 )
+INSERT INTO Frequencia (id_aluno, id_turma_ano_letivo, id_turma_disciplina, id_aulas, frequencia)
+SELECT * FROM ALUNO_AULAS
 ;
 
+WITH NOTAS_ALUNO AS (
+ 	SELECT Aluno_Disciplinas.id_aluno
+		, Aluno_Disciplinas.id_turma_ano_letivo
+		, Aluno_Disciplinas.id_turma_disciplina
+		, Bimestre.id_bimestre
+		/* GERANDO NOTA ALEATORIAMENTE */
+		, ROUND( CAST(random()*100 AS numeric), 1) "NOTA"
+	  FROM Aluno_Disciplinas
+		JOIN Bimestre
+			ON Bimestre.id_turma_disciplina = Aluno_Disciplinas.id_turma_disciplina
+	  
+)
 INSERT INTO Notas (id_aluno, id_turma_ano_letivo, id_turma_disciplina, id_bimestre, nota)
-VALUES
+SELECT * FROM NOTAS_ALUNO
 ;
 
 
