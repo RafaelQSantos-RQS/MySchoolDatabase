@@ -10,8 +10,8 @@ SELECT
     Alunos.nome AS Aluno,
     Notas.nota AS Nota,
     CASE 
-        WHEN Notas.nota >= Bimestre.media_aprovacao THEN 'Aprovado'
-        ELSE 'Reprovado'
+        WHEN Notas.nota >= Bimestre.media_aprovacao THEN 'Acima da média'
+        ELSE 'Abaixo da média'
     END AS Situacao
 FROM Turma_Ano_Letivo
 	JOIN Ano_Letivo
