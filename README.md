@@ -82,3 +82,13 @@ Detalhando mais a fundo, aqui estão presentes todas as tabelas e suas descriç�
 ***
 
 ## Views
+
+Sobre as views criadas, pensamos em 3 especificas relacionadas ao escopo do projeto. O arquivo de criação das views pode ser acessado com esse [link](Preparação/)
+
+- 1º é sobre o histórico geral do aluno e considera os seguintes dados no geral: nome do aluno, disciplina, curso, serie, turma, turno, ano, status da matricula, nota 1º Bimestre, nota 2º Bimestre, nota 3º Bimestre, nota 4º Bimestre, Qnte. de Presenças e Faltas.
+
+- 2º é sobre os dados de cada um dos responsáveis, considerando os seguintes campos principalmente: nome do resposável, telefone, email, nome do aluno, curso, serie, turma, turno, ano e status da matricula.
+
+- 3º é sobre a relação aluno-nota por professor, o que trás essas colunas no geral: curso, serie, turma, turno, ano, disciplina, nome_professor, bimestre, nota, status da matricula.
+
+PS: Lembrando que essas são apenas 3 das muitas views possiveis de serem criadas pensando no banco de dados.
