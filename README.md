@@ -23,10 +23,10 @@ Pensando na escola, algumas tabelas são imprescindiveis. Alunos, professores, d
 
 Contudo, foram criadas tabelas de relacionamento entre entidades para facilitar a comunicação do banco de dados. por exemplo, a tabela turmas_disciplinas vinculas todas as disciplinas para cada turma, turma_ano_letivo vincula todas as turmas por ano letivo, alunos_disciplina vinculam todas as disciplinas para cada aluno e por ai vai.
 
-Utilizando o draw.io como base, foi possivel fazer o diagrama de entidade relacionamento a seguir para exemplificar, podendo ser acessada nesse [link](images/der.jpg):
+Utilizando o draw.io como base, foi possivel fazer o diagrama de entidade relacionamento a seguir para exemplificar, podendo ser acessada nesse [link](images/Modelo_de_Dados.pgerd.png):
 
 <p style="text-align:center;">
-<img src='https://raw.githubusercontent.com/RafaelQSantos-RQS/MySchoolDatabase/main/images/der.jpg'>
+<img src='https://raw.githubusercontent.com/RafaelQSantos-RQS/MySchoolDatabase/main/images/Modelo_de_Dados.pgerd.png'>
 </p>
 
 Tendo esse plano desenhado, coube a criação de tabelas no PostgreeSQL, respeitando os tipos de cada um dos atributos, assim como as ligações entre chaves primárias e estrangeiras. O arquivo no de criação das tabelas no formado SQL está presente nesse [link](Preparação/Create%20Tables.sql).
