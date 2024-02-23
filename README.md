@@ -94,4 +94,4 @@ Sobre as views criadas, pensamos em 3 especificas relacionadas ao escopo do proj
 - 4º é sobre a relação aluno-nota por professor, o que trás essas colunas no geral: curso, serie, turma, turno, ano, disciplina, nome_professor, bimestre, nota, status da matricula.
  
 
-PS: Lembrando que essas são apenas 3 das muitas views possiveis de serem criadas pensando no banco de dados.
+PS: Lembrando que essas são apenas 4 das muitas views possiveis de serem criadas pensando no banco de dados.
