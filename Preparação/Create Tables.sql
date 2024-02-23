@@ -153,6 +153,7 @@ CREATE TABLE Frequencia (
     id_turma_ano_letivo SMALLINT REFERENCES Turma_Ano_Letivo(id_turma_ano_letivo) NOT NULL,
     id_turma_disciplina SMALLINT REFERENCES Turma_Disciplina(id_turma_disciplina) NOT NULL,
     id_aulas SMALLINT REFERENCES Aulas(id_aulas) NOT NULL,
+	frequencia VARCHAR(1) NOT NULL,
     PRIMARY KEY (id_aluno, id_turma_ano_letivo, id_turma_disciplina, id_aulas),
     FOREIGN KEY (id_aluno, id_turma_ano_letivo, id_turma_disciplina) REFERENCES Aluno_Disciplinas(id_aluno, id_turma_ano_letivo, id_turma_disciplina)
 );
