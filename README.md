@@ -18,7 +18,7 @@ Os dados utilizados para população são fictícios, servindo apenas como exemp
 
 ***
 
-## Tabelas
+## Diagrama Entidade Relacionamento
 
 Pensando na escola, algumas tabelas são imprescindiveis. Alunos, professores, disciplinas, turmas, séries, ano letivo, notas, frequência.
 
@@ -36,6 +36,8 @@ Sobre a população, foram feitas diretamente no arquivo SQL presente nesse [lin
 
 ***
 ### Descrição das Tabelas
+
+Detalhando mais a fundo, aqui estão presentes todas as tabelas e suas descrições:
 
 1. **Enderecos**: Esta tabela armazena informações de endereços, como CEP, rua, número, bairro, cidade, estado e país. Ela é utilizada para manter registros de endereços associados a alunos e outros elementos do sistema.
 
@@ -77,8 +79,6 @@ Sobre a população, foram feitas diretamente no arquivo SQL presente nesse [lin
 
 20. **Notas:** Esta tabela registra as notas dos alunos em cada disciplina e bimestre, contendo informações como id do aluno, ano letivo, disciplina, bimestre e nota.
 
-## Consultas
-
 ***
 
-## Insights
+## Views
