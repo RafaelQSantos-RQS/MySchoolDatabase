@@ -7,13 +7,14 @@
 </p>
 
 
-Esse repositório é referente ao projeto de Banco de Dados do curso de Engenheiro de dados da ADA Tech Santander Coders. O objetivo principal do projeto é ele ser possivel de ser aplicado para algum negócio e tenha utilidade prática.
+Esse repositório é referente ao projeto de Banco de Dados do curso de Engenheiro de dados da ADA Tech Santander Coders, utilizando o PostgreSQL como banco de dados. O objetivo principal do projeto é criar uma base de dados com potencial de ser aplicada em um contexto de negócios real e tenha utilidade prática.
 
-Em meio a tantas opções, o grupo decidiu escolher trabalhar com a gestão de dados de uma escola, considerando o 1º ao 9º ano de ensino. Para isso, será preciso ter dados sobre alunos, professores, aulas, turmas, séries e muito mais.
+Em meio a tantas opções, o grupo optou por desenvolver uma estrutura de banco de dados para a gestão de dados de uma escola, considerando o 1º ao 9º ano do ensino fundamental. Para isso, é necessário armazenar dados sobre alunos, professores, aulas, turmas, séries e outros aspectos relacionados.
 
-Para o desenvolvimento proposto, foi utilizado o draw.io para desenho do diagrama de entidade relacionamento e o PostgreeSQL, tanto para criação e população das tabelas quanto para consultas SQL.
+Para a implementação inicial do projeto, utilizamos o draw.io para o desenho do diagrama de entidade-relacionamento, devido ele ser online e permitir a iteração multiusuario, e o PostgreSQL para a criação, população das tabelas, criação de Views e execução de consultas SQL.
 
-No caso, os dados usados para população são ficticios, apenas para exemplificar o funcionamento do projeto.
+
+Os dados utilizados para população são fictícios, servindo apenas como exemplos para ilustrar o funcionamento do projeto.
 
 ***
 
@@ -21,17 +22,17 @@ No caso, os dados usados para população são ficticios, apenas para exemplific
 
 Pensando na escola, algumas tabelas são imprescindiveis. Alunos, professores, disciplinas, turmas, séries, ano letivo, notas, frequência.
 
-Contudo, foram criadas tabelas de relacionamento entre entidades para facilitar a comunicação do banco de dados. por exemplo, a tabela turmas_disciplinas vinculas todas as disciplinas para cada turma, turma_ano_letivo vincula todas as turmas por ano letivo, alunos_disciplina vinculam todas as disciplinas para cada aluno e por ai vai.
+No entanto, foram elaboradas tabelas de relacionamento entre entidades para aprimorar a interação no banco de dados. Por exemplo, a tabela turmas_disciplinas associa todas as disciplinas a cada turma, enquanto a turma_ano_letivo relaciona todas as turmas a um determinado ano letivo. Da mesma forma, a tabela alunos_disciplina estabelece as conexões entre cada aluno e suas disciplinas correspondentes, e assim por diante.
 
-Utilizando o draw.io como base, foi possivel fazer o diagrama de entidade relacionamento a seguir para exemplificar, podendo ser acessada nesse [link](images/Modelo_de_Dados.pgerd.png):
+Inicialmente utilizamos o draw.io como ferramenta inicial de modelagem, e posteriormente o Postgres para concretizar o modelo de entidades e relacionamentos. Assim, foi possível criar o diagrama de entidade-relacionamento a seguir para exemplificar o projeto. Você pode acessá-lo neste [link](images/Modelo_de_Dados.pgerd.png):
 
 <p style="text-align:center;">
 <img src='https://raw.githubusercontent.com/RafaelQSantos-RQS/MySchoolDatabase/main/images/Modelo_de_Dados.pgerd.png'>
 </p>
 
-Tendo esse plano desenhado, coube a criação de tabelas no PostgreeSQL, respeitando os tipos de cada um dos atributos, assim como as ligações entre chaves primárias e estrangeiras. O arquivo no de criação das tabelas no formado SQL está presente nesse [link](Preparação/Create%20Tables.sql).
+Tendo esse plano desenhado, coube a criação de tabelas no PostgresSQL, respeitando os tipos de cada um dos atributos, assim como as ligações entre chaves primárias e estrangeiras. O arquivo de criação das tabelas no formado SQL está presente nesse [link](Preparação/Create%20Tables.sql).
 
-Sobre a população, foram feitas diretamente no arquivo SQL presente nesse [link](Preparação/Insert%20Data.sql). Lembrando, os dados utilizados são ficticios montados pela própria equipe para fins didáticos de como o modelo opera na prática.
+Sobre a população, foram feitas diretamente no arquivo SQL presente nesse [link](Preparação/Insert%20Data.sql). Lembrando, os dados utilizados são ficticios montados pela própria equipe para fins didáticos.
 
 ***
 
