@@ -23,15 +23,15 @@ Pensando na escola, algumas tabelas são imprescindiveis. Alunos, professores, d
 
 Contudo, foram criadas tabelas de relacionamento entre entidades para facilitar a comunicação do banco de dados. por exemplo, a tabela turmas_disciplinas vinculas todas as disciplinas para cada turma, turma_ano_letivo vincula todas as turmas por ano letivo, alunos_disciplina vinculam todas as disciplinas para cada aluno e por ai vai.
 
-Utilizando o draw.io como base, foi possivel fazer o diagrama de entidade relacionamento a seguir para exemplificar, podendo ser acessada nesse [link](https://raw.githubusercontent.com/RafaelQSantos-RQS/MySchoolDatabase/main/images/der.jpg):
+Utilizando o draw.io como base, foi possivel fazer o diagrama de entidade relacionamento a seguir para exemplificar, podendo ser acessada nesse [link](images/der.jpg):
 
 <p style="text-align:center;">
 <img src='https://raw.githubusercontent.com/RafaelQSantos-RQS/MySchoolDatabase/main/images/der.jpg'>
 </p>
 
-Tendo esse plano desenhado, coube a criação de tabelas no PostgreeSQL, respeitando os tipos de cada um dos atributos, assim como as ligações entre chaves primárias e estrangeiras. O arquivo no de criação das tabelas no formado SQL está presente nesse [link](https://github.com/RafaelQSantos-RQS/MySchoolDatabase/blob/main/script%20de%20cria%C3%A7%C3%A3o%20de%20tabelas.sql).
+Tendo esse plano desenhado, coube a criação de tabelas no PostgreeSQL, respeitando os tipos de cada um dos atributos, assim como as ligações entre chaves primárias e estrangeiras. O arquivo no de criação das tabelas no formado SQL está presente nesse [link](Preparação/Create%20Tables.sql).
 
-Sobre a população, foram feitas diretamente no arquivo SQL presente nesse [link](https://github.com/RafaelQSantos-RQS/MySchoolDatabase/blob/main/script%20de%20popular%20tabelas.sql). Lembrando, os dados utilizados são ficticios montados pela própria equipe para fins didáticos de como o modelo opera na prática.
+Sobre a população, foram feitas diretamente no arquivo SQL presente nesse [link](Preparação/Insert%20Data.sql). Lembrando, os dados utilizados são ficticios montados pela própria equipe para fins didáticos de como o modelo opera na prática.
 
 ***
 
