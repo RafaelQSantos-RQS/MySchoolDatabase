@@ -435,13 +435,13 @@ SELECT id_turma_disciplina, TO_DATE('2024-02-16', 'YYYY-MM-DD'), '14:00', '17:00
 ;
 
 INSERT INTO Bimestre (id_turma_disciplina, descricao, valor, media_aprovacao)
-SELECT id_turma_disciplina, '1º Bimestre', 100, 70 FROM turma_disciplina
+SELECT id_turma_disciplina, '1º Bimestre', 10, 7 FROM turma_disciplina
 UNION
-SELECT id_turma_disciplina, '2º Bimestre', 100, 70 FROM turma_disciplina
+SELECT id_turma_disciplina, '2º Bimestre', 10, 7 FROM turma_disciplina
 UNION
-SELECT id_turma_disciplina, '3º Bimestre', 100, 70 FROM turma_disciplina
+SELECT id_turma_disciplina, '3º Bimestre', 10, 7 FROM turma_disciplina
 UNION
-SELECT id_turma_disciplina, '4º Bimestre', 100, 70 FROM turma_disciplina
+SELECT id_turma_disciplina, '4º Bimestre', 10, 7 FROM turma_disciplina
 ;
 
 WITH TURMAS AS (SELECT ROW_NUMBER() OVER (ORDER BY ID_TURMA_ANO_LETIVO) NUM, * FROM Turma_Ano_Letivo WHERE ID_ANO_LETIVO = 3)
@@ -493,7 +493,7 @@ WITH NOTAS_ALUNO AS (
 		, Aluno_Disciplinas.id_turma_disciplina
 		, Bimestre.id_bimestre
 		/* GERANDO NOTA ALEATORIAMENTE */
-		, ROUND( CAST(random()*100 AS numeric), 1) "NOTA"
+		, ROUND( CAST(random()*10 AS numeric), 1) "NOTA"
 	  FROM Aluno_Disciplinas
 		JOIN Bimestre
 			ON Bimestre.id_turma_disciplina = Aluno_Disciplinas.id_turma_disciplina
